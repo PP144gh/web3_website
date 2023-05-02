@@ -1,3 +1,10 @@
+TO TEST WEBSITE:
+
+CLONE REPO, RUN npm install in repo folder, RUN npm run start
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

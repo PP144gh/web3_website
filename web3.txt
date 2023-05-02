@@ -1,0 +1,91 @@
+install nodejs: https://nodejs.org/en/download
+
+npm install react@latest react-dom@latest
+
+npx means executing in node
+npm is the manager, used for installs
+
+npx create-react-app web3
+npm i -D hardhat
+
+npx hardhat (and enter 4x)
+
+
+npm i @openzeppelin/contracts
+
+
+install chakra: https://chakra-ui.com/getting-started
+
+npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
+
+delete in /src: logo.svg , reportWebVitals.js, setupTests.js, App.test.js
+
+comment mentions to reportWebVitals in index.js, mentions to logo in App.js , remove header in App.js
+
+in /contracts create Mint.sol (see file for what to write on it)
+
+-run node or use infura or alchemy to get apis to nodes.
+
+define in file .env the variables REACT_APP_SEPOLIA_RPC_URL, REACT_APP_PRIVATE_KEY, REACT_APP_ETHERSCAN_KEY. .env must be in the same folder of hardhat.config.js
+
+
+npm i -D dotenv
+
+include 
+
+const dotenv = require("dotenv");
+
+dotenv.config();
+
+and
+
+dotenv.config();
+
+/** @type import('hardhat/config').HardhatUserConfig */
+module.exports = {
+  solidity: "0.8.18",
+  networks: {
+    sepolia : {
+      url: process.env.REACT_APP_SEPOLIA_RPC_URL,
+      accounts: [process.env.REACT_APP_PRIVATE_KEY]
+    },
+  },
+  etherscan : {
+    apiKey: process.env.REACT_APP_ETHERSCAN_KEY,
+  },
+};
+
+in hardhat.config.js
+
+
+-run npx hardhat clean
+npx hardhat compile
+npx hardhat run scripts/deployRoboPunksNFT.js --network sepolia  //this deploys the contract in the test network! console prints the contract address
+
+
+install
+
+npm i -D @nomiclabs/hardhat-etherscan
+
+-verify contract in etherscan
+
+require("@nomiclabs/hardhat-etherscan"); add in hardhat.config.js
+
+npx hardhat verify --network sepolia 0x0e13Cb0A85c6e6075b6283Cfc07bEc94C9168dF9 //address is the deployed contract address
+
+copy RoboPunksNFT.json from artifacts/contracts/RoboPunksNFT.sol folder to src
+
+
+edit App.js (see file), create file NavBar.js and MaintMint.js in src. write in them (see file)
+
+STYLING: See App.css and App.js, NavBar.js and MainMint.js
+
+
+
+ENABLE PUBLIC MINT: go to etherscan contract page and connect (with the address that deployed, see contract for the logic behind this) and write in function setIsPublicMintEnabled and change isPublicMintEnabled to true.
+
+
+might need to run
+npm install --save --save-exact react-scripts@5.0.1
+to make chakra work.
+RUN WEBSITE : npm run start (npm run build ?? )

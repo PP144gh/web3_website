@@ -2,7 +2,8 @@ TO TEST WEBSITE:
 
 CLONE REPO, RUN npm install in repo folder, RUN npm run start
 
-
+(might need to RUN npm install --save --save-exact react-scripts@5.0.1
+to make chakra work.)
 
 
 # Getting Started with Create React App
